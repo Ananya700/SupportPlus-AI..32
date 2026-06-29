@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupportPlus AI</title>
+    <meta name="description" content="SupportPlus AI — Smart knowledge enhancer for customer support using RAG, Mem0, and Firecrawl.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg class="logo-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2EC4B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <h1>SupportPlus</h1>
+                </div>
+                <p class="sidebar-tagline">AI-powered support assistant</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" id="nav-chat">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    Chat
+                </a>
+            </nav>
+
+            <div class="sidebar-content">
+                <div class="memory-card">
+                    <div class="memory-header">
+                        <span class="memory-icon">🧠</span>
+                        <h3>Teach the AI</h3>
+                    </div>
+                    <p class="memory-desc">Store preferred solutions to frequent issues. The AI will remember these for future conversations.</p>
+                    
+                    <div class="feedback-form">
+                        <div class="input-group">
+                            <label for="feedback-issue">Frequent Issue</label>
+                            <input type="text" id="feedback-issue" placeholder="e.g. WiFi keeps dropping">
+                        </div>
+                        <div class="input-group">
+                            <label for="feedback-solution">Preferred Solution</label>
+                            <textarea id="feedback-solution" placeholder="e.g. Restart the router and wait 5 minutes..."></textarea>
+                        </div>
+                        <button id="submit-feedback-btn" class="btn-primary">
+                            <span class="btn-text">Store in Memory</span>
+                        </button>
+                        <p id="feedback-status" class="status-msg"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="footer-badge">Powered by Gemini & Mem0</div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-wrapper">
+            <header class="chat-header">
+                <div class="chat-header-info">
+                    <div class="status-dot"></div>
+                    <span>SupportPlus AI</span>
+                </div>
+            </header>
+
+            <div class="chat-container" id="chat-box">
+                <div class="message system-message">
+                    <div class="avatar system-avatar">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <div class="content markdown-body">
+                        <p>Hello! I'm <strong>SupportPlus AI</strong>.</p>
+                        <p>I can answer your questions using our internal FAQs, web troubleshooting guides, and past solutions. How can I assist you today?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <div class="input-box">
+                    <textarea id="user-input" placeholder="Ask a question..." rows="1"></textarea>
+                    <button id="send-btn" class="send-btn" aria-label="Send message">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <p class="disclaimer">SupportPlus AI can make mistakes. Consider verifying important information.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

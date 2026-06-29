@@ -1,0 +1,13 @@
+# Environments
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Environment Variables
+.env
+
+# Vector Databases
+chroma_db/
+qdrant_data/
+chroma_cache/
